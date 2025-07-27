@@ -2,7 +2,7 @@
 
 **Date:** July 2025
 
-This document describes how to use a really basic pipeline for SuperNEMO data reconstruction from SD to UDD to PCD for simulation and from UDD to PCD for data for the teo first phases of data taking. This method should be used only until official production is done.
+This document describes how to use a really basic pipeline for SuperNEMO data reconstruction from SD to UDD to PCD for simulation and from UDD to PCD for data for the first phases of data taking. This method should be used only until official production is done.
 
 ---
 
