@@ -26,7 +26,7 @@ The pipeline is divided into 5 different modules:
 
 - `udd2pcd`
 - `pcd2cd`
-- `TKReconstruct` → from CD to TTD bank
+- `Cimrman` → from CD to TTD bank
 - `ChargedParticleTracker` → from TTD to PTD bank
 
 Lets start with the two modules `udd2pcd` and `pcd2cd`:
@@ -46,9 +46,9 @@ Is using 2 files for the calibrations:
 
 The code is available [here](https://github.com/SuperNEMO-DBD/Falaise/blob/c0b9854a02b6703080c9680ad8822deded0b6045/source/falaise/snemo/processing/pcd2cd_module.cc)
 
-### `TKReconstruct`
+### `Cimrman`
 
-The TKReconstruct algorithm, and not the Cimmerman algorithm, is used for sake of simplicity. This is a short term solution that will be changed in the future.
+The Cimrman algorithm, have a lots of parameters that can be changed. They are for the moment based on 2nu and 0nu efficiency
 
 ### `ChargedParticleTracker`
 
