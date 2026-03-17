@@ -2,7 +2,7 @@
 
 **Date:** July 2025
 
-This document describes how to use a really basic pipeline for SuperNEMO data reconstruction from SD to UDD to PCD for simulation and from UDD to PCD for data for the first phases of data taking. This method should be used only until official production is done.
+This document describes how to use a really basic pipeline for SuperNEMO data reconstruction from SD to PTD for simulation and from UDD to PTD for data. This method should be used only until official production is done.
 
 ---
 
@@ -11,13 +11,12 @@ This document describes how to use a really basic pipeline for SuperNEMO data re
 The code is divided in several Falaise module (lots of them from other people in the collaboration) and can be launched using the following command (the git clone should only be done the first time):
 
 ```bash
-$> git clone https://github.com/Maathiiss/SN-reco_phase_-0-1-
-$> source /sps/nemo/scratch/chauveau/software/falaise/develop/this_falaise.sh
-$> flreconstruct -p UDD_to_ptd_data/simu_phase_0/1.conf -i UDD.brio -o PTD.brio
-```
+$> git clone https://github.com/Maathiiss/SN-reco
+$> snswmgr_load_setup falaise@5.1.9
+$> flreconstruct -p UDD_to_ptd_data/UDD_to_ptd_data.conf -i UDD.brio -o PTD.brio
+
 
 You'll obtain a PTD.brio file for simulation and data processed the same way and that should be comparable.
-
 ---
 
 ## Understand each module
@@ -31,7 +30,7 @@ The pipeline is divided into 5 different modules:
 
 Lets start with the two modules `udd2pcd` and `pcd2cd`:
 
-Theses two modules were written by Manu. This code is used to switch from the UDD bank to the CD bank (files are here: `/sps/nemo/snemo/snemo_data/reco_data/UDD/delta-tdc-10us-v3/snemo_run-XXXX_udd.brio`).
+Theses two modules were written by Manu. This code is used to switch from the UDD bank to the CD bank (You can find UDD files at this path : `/sps/nemo/snemo/snemo_data/reco_data/UDD/delta-tdc-1600us-v3/snemo_run-${run_number}_udd.brio`).
 
 ### `udd2pcd`
 
@@ -43,12 +42,15 @@ Is using 2 files for the calibrations:
 
 - Time calibration file → file produced by Manu for now, stored in my scratch directory. Easily replaceable.
 - Energy calibration file → file produced by me using only the "a" parameter in the calibration, stored in my scratch directory. Easily replaceable.
+```
+You need to change the calibration file with the closest one present here : /sps/nemo/scratch/granjon/full_gain_analysis/Bi/root/compute_a/data_calibration_pol2/
 
 The code is available [here](https://github.com/SuperNEMO-DBD/Falaise/blob/c0b9854a02b6703080c9680ad8822deded0b6045/source/falaise/snemo/processing/pcd2cd_module.cc)
 
 ### `Cimrman`
 
-The Cimrman algorithm, have a lots of parameters that can be changed. They are for the moment based on 2nu and 0nu efficiency
+The Cimrman algorithm, have a lots of parameters that can be changed. They are for the moment based on 2nu and 0nu efficiency (see docDB #6186).
+Alphas particle and huge kinks are possible but not optimized.
 
 ### `ChargedParticleTracker`
 
