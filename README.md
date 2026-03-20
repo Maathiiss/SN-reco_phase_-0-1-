@@ -14,10 +14,10 @@ The code is divided in several Falaise module (lots of them from other people in
 $> git clone https://github.com/Maathiiss/SN-reco
 $> snswmgr_load_setup falaise@5.1.9
 $> flreconstruct -p UDD_to_ptd_data/UDD_to_ptd_data.conf -i UDD.brio -o PTD.brio
-
+```
 
 You'll obtain a PTD.brio file for simulation and data processed the same way and that should be comparable.
----
+
 
 ## Understand each module
 
