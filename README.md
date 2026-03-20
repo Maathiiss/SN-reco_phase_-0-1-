@@ -42,7 +42,7 @@ Is using 2 files for the calibrations:
 
 - Time calibration file → file produced by Manu for now, stored in my scratch directory. Easily replaceable.
 - Energy calibration file → file produced by me using only the "a" parameter in the calibration, stored in my scratch directory. Easily replaceable.
-```
+
 You need to change the calibration file with the closest one present here : /sps/nemo/scratch/granjon/full_gain_analysis/Bi/root/compute_a/data_calibration_pol2/
 
 The code is available [here](https://github.com/SuperNEMO-DBD/Falaise/blob/c0b9854a02b6703080c9680ad8822deded0b6045/source/falaise/snemo/processing/pcd2cd_module.cc)
